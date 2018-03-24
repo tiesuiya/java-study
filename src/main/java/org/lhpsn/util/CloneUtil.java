@@ -8,7 +8,7 @@ import java.io.*;
  * @author lh
  * @since 1.0.0
  */
-public class CloneUtil {
+public final class CloneUtil {
 
     /**
      * 通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆

@@ -6,7 +6,7 @@ package org.lhpsn.util;
  * @author lh
  * @since 1.0.0
  */
-public class StringUtil {
+public final class StringUtil {
 
     /**
      * 字符串反转
