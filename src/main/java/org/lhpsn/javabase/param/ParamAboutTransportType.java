@@ -1,7 +1,7 @@
 package org.lhpsn.javabase.param;
 
 /**
- * 参数传递类型
+ * 关于参数传递类型
  * <p>
  * java中只有值传递，没有引用传递
  * （将需要通过方法调用修改的引用置于一个Wrapper类中，再将Wrapper对象传入方法）
@@ -9,7 +9,7 @@ package org.lhpsn.javabase.param;
  * @author lh
  * @since 1.0.0
  */
-public class ParamTransport {
+public class ParamAboutTransportType {
 
     public static void main(String[] args) {
         // 改变参数对象中的值
