@@ -11,11 +11,13 @@ import java.util.Comparator;
 public final class SortUtil {
 
     /**
-     * 高效冒泡排序
+     * 冒泡排序
+     * 注意：效率天差于Collections.sort
      *
      * @param list 待排序集合
      * @param <T>  待排序对象
      */
+    @Deprecated
     public static <T extends Comparable<T>> void sort(T[] list) {
         boolean swapped = true;
         for (int i = 1, len = list.length; i < len && swapped; i++) {
@@ -32,12 +34,14 @@ public final class SortUtil {
     }
 
     /**
-     * 高效冒泡排序（自定义排序重载）
+     * 冒泡排序（自定义排序重载）
+     * 注意：效率天差于Collections.sort
      *
      * @param list 待排序集合
      * @param <T>  待排序对象
      * @param comp 比较方式
      */
+    @Deprecated
     public static <T> void sort(T[] list, Comparator<T> comp) {
         boolean swapped = true;
         for (int i = 1, len = list.length; i < len && swapped; i++) {
