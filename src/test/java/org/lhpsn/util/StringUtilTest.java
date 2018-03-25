@@ -15,7 +15,6 @@ public class StringUtilTest {
 
     @Test
     public void testReverse() throws Exception {
-        File file = new File("");
         String str = "abc123";
         str = StringUtil.reverse(str);
         Assert.assertTrue("321cba".equals(str));
