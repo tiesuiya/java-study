@@ -1,5 +1,7 @@
 package org.lhpsn.codingskill.recursion;
 
+import org.lhpsn.codingskill.common.Node;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,12 +14,12 @@ import java.util.Arrays;
 public class RecursiveAboutLinkedListReverse {
 
     public static void main(String[] args) {
-        RecursiveAboutLinkedListReverse reverse = new RecursiveAboutLinkedListReverse();
-        RecursiveAboutLinkedList creator = new RecursiveAboutLinkedList();
+        RecursiveAboutLinkedListReverse recursiveReverse = new RecursiveAboutLinkedListReverse();
+        RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
 
-        Node.printNode(reverse.reverseLinkedList(creator.createLinkedList(new ArrayList<Integer>())));
-        Node.printNode(reverse.reverseLinkedList(creator.createLinkedList(Arrays.asList(1))));
-        Node.printNode(reverse.reverseLinkedList(creator.createLinkedList(Arrays.asList(1, 2, 3, 5, 6, 7))));
+        Node.printNode(recursiveReverse.reverseLinkedList(recursiveCreator.createLinkedList(new ArrayList<Integer>())));
+        Node.printNode(recursiveReverse.reverseLinkedList(recursiveCreator.createLinkedList(Arrays.asList(1))));
+        Node.printNode(recursiveReverse.reverseLinkedList(recursiveCreator.createLinkedList(Arrays.asList(1, 2, 3, 5, 6, 7))));
     }
 
     /**
