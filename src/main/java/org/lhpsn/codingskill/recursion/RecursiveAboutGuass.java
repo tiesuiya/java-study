@@ -1,4 +1,4 @@
-package org.lhpsn.codingskill.recursive;
+package org.lhpsn.codingskill.recursion;
 
 /**
  * 关于高斯的递归算法

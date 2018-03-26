@@ -1,4 +1,4 @@
-package org.lhpsn.codingskill.recursive;
+package org.lhpsn.codingskill.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;

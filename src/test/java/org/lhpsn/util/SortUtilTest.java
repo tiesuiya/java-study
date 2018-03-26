@@ -2,9 +2,6 @@ package org.lhpsn.util;
 
 import org.junit.Assert;
 import org.junit.Test;
-import sun.security.util.Length;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
