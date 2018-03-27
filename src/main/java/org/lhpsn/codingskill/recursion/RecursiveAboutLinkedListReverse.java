@@ -1,5 +1,7 @@
 package org.lhpsn.codingskill.recursion;
 
+import org.lhpsn.codingskill.common.Node;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
