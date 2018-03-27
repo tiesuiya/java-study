@@ -13,12 +13,12 @@ import java.util.List;
 public class RecursiveAboutCombination {
 
     public static void main(String[] args) {
-        RecursiveAboutCombination combination = new RecursiveAboutCombination();
+        RecursiveAboutCombination combinationCreator = new RecursiveAboutCombination();
 
-        print(combination.combination(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 4));
-        print(combination.combination(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 0));
-        print(combination.combination(new ArrayList<Integer>(), 0));
-        print(combination.combination(new ArrayList<Integer>(), 10));
+        print(combinationCreator.combination(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 4));
+        print(combinationCreator.combination(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), 0));
+        print(combinationCreator.combination(new ArrayList<Integer>(), 0));
+        print(combinationCreator.combination(new ArrayList<Integer>(), 10));
     }
 
     /**
