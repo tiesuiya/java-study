@@ -10,34 +10,65 @@ public class EachAboutBinarySearch {
 
     public static void main(String[] args) {
         EachAboutBinarySearch eachBinarySearch = new EachAboutBinarySearch();
-        int[] ints = new int[]{1, 2, 3, 4, 5};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 6));
+        int[] ints;
+
         ints = new int[]{1, 3};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 6));
+        System.out.println(eachBinarySearch.binarySearch(ints, 6));
+        ints = new int[]{1, 2, 3, 4, 5};
+        System.out.println(eachBinarySearch.binarySearch(ints, 6));
         ints = new int[]{1};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 0));
+        System.out.println(eachBinarySearch.binarySearch(ints, 0));
         ints = new int[]{1, 2, 3, 4, 5};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 0));
+        System.out.println(eachBinarySearch.binarySearch(ints, 0));
         ints = new int[]{1, 2, 3, 4, 5};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 1));
+        System.out.println(eachBinarySearch.binarySearch(ints, 1));
         ints = new int[]{1, 2, 3, 4, 5};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 5));
+        System.out.println(eachBinarySearch.binarySearch(ints, 5));
         System.out.println(".....................................");
         ints = new int[]{1, 2, 3, 4, 5};
-        System.out.println(eachBinarySearch.binarySearch1(ints, -1));
+        System.out.println(eachBinarySearch.binarySearch(ints, -1));
         ints = new int[]{10, 20, 30, 40, 50};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 25));
+        System.out.println(eachBinarySearch.binarySearch(ints, 25));
         ints = new int[]{10, 20, 30, 40, 50};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 55));
+        System.out.println(eachBinarySearch.binarySearch(ints, 55));
         ints = new int[]{1, 2};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 1));
+        System.out.println(eachBinarySearch.binarySearch(ints, 1));
         ints = new int[]{1, 2};
-        System.out.println(eachBinarySearch.binarySearch1(ints, 2));
+        System.out.println(eachBinarySearch.binarySearch(ints, 2));
     }
 
 
     /**
      * 二分查找的循环实现
+     *
+     * @param arr 需要查找的数组，必须是一个sorted数组
+     * @param k   需要查找值
+     * @return 值所在数组位置
+     */
+    public int binarySearch(int[] arr, int k) {
+        int a = 0;
+        int b = arr.length - 1;
+        while (b >= a) {
+            int m = a + (b - a) / 2;
+            // 原先代码是：int m = (a + b)/2;但是a+b可能会溢出，所以调整一下写法
+            // b == a : m = a ; m = b
+            // b == a + 1 : m = a
+            // b == a + 2 : (a+b+2)/2 = m -> (a+b)/2 = m -> m一定为中位数
+            // b == a + n : (a+b+n)/2 = m -> m一定为中位数
+            if (k > arr[m]) {
+                a = m + 1;
+            } else if (k < arr[m]) {
+                b = m - 1;
+            } else {
+                return m;
+            }
+        }
+        return -1;
+    }
+
+
+    /**
+     * 二分查找的循环实现（另一种思路）
      *
      * @param arr 需要查找的数组，必须是一个sorted数组
      * @param k   需要查找值
@@ -49,7 +80,7 @@ public class EachAboutBinarySearch {
         int a = 0;
         int b = arr.length;
         while (b > a) {
-            int m = a / 2 + b / 2;
+            int m = a + (b - a) / 2;
             if (k > arr[m]) {
                 a = m + 1;
             } else if (k < arr[m]) {

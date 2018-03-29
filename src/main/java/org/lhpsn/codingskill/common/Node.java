@@ -2,6 +2,9 @@ package org.lhpsn.codingskill.common;
 
 /**
  * 链表节点
+ *
+ * @author lh
+ * @since 1.0.0
  */
 public class Node {
     private final int value;
