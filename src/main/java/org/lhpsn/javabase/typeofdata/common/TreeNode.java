@@ -1,6 +1,8 @@
 package org.lhpsn.javabase.typeofdata.common;
 
 /**
+ * 二叉树节点
+ *
  * @author lh
  * @since 1.0.0
  */
