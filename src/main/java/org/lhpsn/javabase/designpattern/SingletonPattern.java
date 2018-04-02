@@ -6,7 +6,7 @@ package org.lhpsn.javabase.designpattern;
  * @author lh
  * @since 1.0.0
  */
-public class Singleton {
+public class SingletonPattern {
 
     public static void main(String[] args) {
         SingletonLazy singletonLazy1 = SingletonLazy.getInstance();
@@ -21,7 +21,7 @@ public class Singleton {
 }
 
 /**
- * lazy pattern
+ * Lazy way
  */
 class SingletonLazy {
 
@@ -36,7 +36,7 @@ class SingletonLazy {
 }
 
 /**
- * hungry pattern
+ * Hungry way
  */
 class SingletonHungry {
 
