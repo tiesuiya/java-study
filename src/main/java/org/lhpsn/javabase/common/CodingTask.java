@@ -22,6 +22,7 @@ public class CodingTask implements Runnable {
         try {
             System.out.println("Coding " + codingId + " Begin...");
             Thread.sleep(3000);
+            System.out.println("Coding " + codingId + " End...");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
