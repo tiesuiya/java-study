@@ -4,10 +4,7 @@ import org.lhpsn.javabase.common.CodingTask;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * 关于多线程的固定线程池
@@ -32,16 +29,18 @@ public class FixedThreadPool {
         }
         pool.shutdown();
 
-// 编码规范推荐的方式
-//        ThreadFactory nameThreadFactory = new ThreadFactoryBuilder().setNameFormat("pool-%d").build();
-//        ExecutorService pool = new ThreadPoolExecutor(
-//                3,
-//                200,
-//                0L,
-//                TimeUnit.MILLISECONDS,
-//                new LinkedBlockingQueue<Runnable>(1024),
-//                nameThreadFactory,
-//                new ThreadPoolExecutor.AbortPolicy());
+        /*
+        // 编码规范推荐的方式
+        ThreadFactory nameThreadFactory = new ThreadFactoryBuilder().setNameFormat("pool-%d").build();
+        ExecutorService pool = new ThreadPoolExecutor(
+                3,
+                200,
+                0L,
+                TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(1024),
+                nameThreadFactory,
+                new ThreadPoolExecutor.AbortPolicy());
+                */
     }
 
 }
