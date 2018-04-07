@@ -1,4 +1,4 @@
-package org.lhpsn.codingskill.interviewquestions;
+package org.lhpsn.codingskill.interview.question;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -32,7 +32,7 @@ public class GoogleAboutBeautifulNumberLargeData {
      * @param n 数据
      * @return 进制
      */
-    private long getBeautifulRadix(long n) {
+    public long getBeautifulRadix(long n) {
         // 已知：10^18在一个64位的长整型范围内（long：-2^63 ~ 2^63-1）
         // 故可以假定数据在bits位下全是1
         int minBit = 1;

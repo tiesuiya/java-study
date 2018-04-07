@@ -1,4 +1,4 @@
-package org.lhpsn.codingskill.interviewquestions;
+package org.lhpsn.codingskill.interview.question;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -8,7 +8,7 @@ import org.lhpsn.codingskill.interview.question.GoogleAboutBeautifulNumberLargeD
  * @author lh
  * @since 1.0.0
  */
-public class PrintBeautifyNumberWithIntegerTest {
+public class PrintBeautifyNumberWithInteger {
     public static void main(String[] args) {
         GoogleAboutBeautifulNumberLargeData largeData = new GoogleAboutBeautifulNumberLargeData();
 
