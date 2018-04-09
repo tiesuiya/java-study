@@ -1,14 +1,32 @@
-package org.lhpsn.util;
+package org.lhpsn.codingskill.sort;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * 排序帮助类
+ * 关于排序的冒泡实现
  *
  * @author lh
  * @since 1.0.0
  */
-public final class SortUtil {
+public class SortAboutBubbleSort {
+
+    public static void main(String[] args) {
+        SortAboutBubbleSort sortAboutBubbleSort = new SortAboutBubbleSort();
+
+        Integer[] array = new Integer[]{111, 32, 3, 45, 6, 1};
+        sortAboutBubbleSort.sort(array);
+        System.out.println(Arrays.asList(array));
+
+        array = new Integer[]{33, 322, 13, 45, 14, 5};
+        sortAboutBubbleSort.sort(array, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        System.out.println(Arrays.asList(array));
+    }
 
     /**
      * 冒泡排序
@@ -17,8 +35,7 @@ public final class SortUtil {
      * @param list 待排序集合
      * @param <T>  待排序对象
      */
-    @Deprecated
-    public static <T extends Comparable<T>> void sort(T[] list) {
+    public <T extends Comparable<T>> void sort(T[] list) {
         boolean swapped = true;
         for (int i = 1, len = list.length; i < len && swapped; i++) {
             swapped = false;
@@ -41,8 +58,7 @@ public final class SortUtil {
      * @param <T>  待排序对象
      * @param comp 比较方式
      */
-    @Deprecated
-    public static <T> void sort(T[] list, Comparator<T> comp) {
+    public <T> void sort(T[] list, Comparator<T> comp) {
         boolean swapped = true;
         for (int i = 1, len = list.length; i < len && swapped; i++) {
             swapped = false;
@@ -58,3 +74,5 @@ public final class SortUtil {
     }
 
 }
+
+

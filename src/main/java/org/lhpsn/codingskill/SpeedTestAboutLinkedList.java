@@ -16,7 +16,7 @@ import java.util.Random;
  * @author lh
  * @since 1.0.0
  */
-public class SpeadTestAboutLinkedList {
+public class SpeedTestAboutLinkedList {
 
     public static void main(String[] args) {
 
