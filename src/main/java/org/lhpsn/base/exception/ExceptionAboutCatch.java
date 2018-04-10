@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.exception;
+package org.lhpsn.base.exception;
 
 /**
  * 关于异常捕获原则

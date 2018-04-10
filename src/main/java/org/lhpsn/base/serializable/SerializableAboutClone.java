@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.serializable;
+package org.lhpsn.base.serializable;
 
 import java.io.*;
 

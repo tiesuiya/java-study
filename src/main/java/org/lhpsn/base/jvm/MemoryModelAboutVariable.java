@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.jvm;
+package org.lhpsn.base.jvm;
 
 import java.util.Random;
 

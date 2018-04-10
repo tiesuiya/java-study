@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.typeofdata;
+package org.lhpsn.base.typeofdata;
 
 /**
  * 关于Integer类型的IntegerCache静态内部类

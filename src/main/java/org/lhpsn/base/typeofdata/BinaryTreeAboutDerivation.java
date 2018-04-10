@@ -1,6 +1,6 @@
-package org.lhpsn.javabase.typeofdata;
+package org.lhpsn.base.typeofdata;
 
-import org.lhpsn.javabase.typeofdata.common.TreeNode;
+import org.lhpsn.base.typeofdata.common.TreeNode;
 
 /**
  * 关于二叉树的推导

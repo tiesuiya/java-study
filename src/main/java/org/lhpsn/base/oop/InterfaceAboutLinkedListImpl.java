@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.oop;
+package org.lhpsn.base.oop;
 
 import org.lhpsn.codingskill.common.Node;
 

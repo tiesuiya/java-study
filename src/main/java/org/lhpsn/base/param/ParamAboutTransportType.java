@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.param;
+package org.lhpsn.base.param;
 
 /**
  * 关于参数传递类型

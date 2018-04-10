@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.typeofdata;
+package org.lhpsn.base.typeofdata;
 
 
 /**

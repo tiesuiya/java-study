@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.typeofdata;
+package org.lhpsn.base.typeofdata;
 
 /**
  * 关于String类型的intern()方法

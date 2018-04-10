@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.typeofdata.common;
+package org.lhpsn.base.typeofdata.common;
 
 /**
  * 二叉树节点

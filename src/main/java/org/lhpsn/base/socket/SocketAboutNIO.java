@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.socket;
+package org.lhpsn.base.socket;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

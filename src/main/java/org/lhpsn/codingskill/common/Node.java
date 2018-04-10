@@ -7,6 +7,7 @@ package org.lhpsn.codingskill.common;
  * @since 1.0.0
  */
 public class Node {
+
     private final int value;
     private Node next;
 

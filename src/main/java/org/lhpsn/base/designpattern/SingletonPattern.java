@@ -1,4 +1,4 @@
-package org.lhpsn.javabase.designpattern;
+package org.lhpsn.base.designpattern;
 
 /**
  * Singleton Pattern
