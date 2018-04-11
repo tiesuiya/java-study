@@ -25,7 +25,7 @@ public class Jxl {
      * @throws IOException    异常
      * @throws WriteException 异常
      */
-    public void integratedUse() throws IOException, WriteException {
+    private void integratedUse() throws IOException, WriteException {
         // 打开一个xls文件，没有的话程序会自动创建
         WritableWorkbook order = Workbook.createWorkbook(new File("./target/JxlTest.xls"));
         // 生成一个工作表
