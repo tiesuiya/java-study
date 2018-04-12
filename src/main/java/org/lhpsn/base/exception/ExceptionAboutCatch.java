@@ -9,15 +9,16 @@ package org.lhpsn.base.exception;
 public class ExceptionAboutCatch {
 
     public static void main(String[] args) throws Exception {
+
         try {
             try {
-                throw new Son();
-            } catch (Parent a) {
+                throw new SonException();
+            } catch (ParentException a) {
                 // 里氏替换原则，父类能做更多
                 System.out.println("Caught Parent");
                 throw a;
             }
-        } catch (Son s) {
+        } catch (SonException s) {
             System.out.println("Caught Son");
             return;
         } finally {
@@ -26,8 +27,14 @@ public class ExceptionAboutCatch {
     }
 }
 
-class Parent extends Exception {
+/**
+ * Parent Exception
+ */
+class ParentException extends Exception {
 }
 
-class Son extends Parent {
+/**
+ * Son Exception
+ */
+class SonException extends ParentException {
 }

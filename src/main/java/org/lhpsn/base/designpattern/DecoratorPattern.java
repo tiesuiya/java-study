@@ -9,6 +9,8 @@ package org.lhpsn.base.designpattern;
 public class DecoratorPattern {
 
     public static void main(String[] args) {
+
+        System.out.println("Run task by decorator pattern:");
         new LoggingRunnable(
                 new TransactionRunnable(
                         new CodingTask())).run();

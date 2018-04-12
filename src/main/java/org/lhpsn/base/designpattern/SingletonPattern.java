@@ -9,14 +9,12 @@ package org.lhpsn.base.designpattern;
 public class SingletonPattern {
 
     public static void main(String[] args) {
-        SingletonLazy singletonLazy1 = SingletonLazy.getInstance();
-        SingletonLazy singletonLazy2 = SingletonLazy.getInstance();
-        SingletonHungry singletonHungry1 = SingletonHungry.getInstance();
-        SingletonHungry singletonHungry2 = SingletonHungry.getInstance();
-        System.out.println(singletonLazy1);
-        System.out.println(singletonLazy2);
-        System.out.println(singletonHungry1);
-        System.out.println(singletonHungry2);
+
+        System.out.print("Lazy way to get two identical objects:");
+        System.out.println(SingletonLazy.getInstance() == SingletonLazy.getInstance());
+
+        System.out.print("Hungry way to get two identical objects:");
+        System.out.println(SingletonHungry.getInstance() == SingletonHungry.getInstance());
     }
 }
 
