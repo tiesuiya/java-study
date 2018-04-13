@@ -13,6 +13,9 @@ import java.util.concurrent.*;
 public class FixedThreadPool {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+        System.out.println("创建一个线程数量为3的固定线程池，并添加10个任务：");
+
         ExecutorService pool = Executors.newFixedThreadPool(3);
 
         List<Future<?>> futures = new LinkedList<>();
@@ -23,7 +26,8 @@ public class FixedThreadPool {
 
         // 非必须
         for (Future<?> future : futures) {
-            System.out.println(future.get());
+            // 执行成功返回null
+            future.get();
         }
         pool.shutdown();
 
@@ -45,9 +49,6 @@ public class FixedThreadPool {
 
 /**
  * Task
- *
- * @author lh
- * @since 1.0.0
  */
 class Task implements Runnable {
 

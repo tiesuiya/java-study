@@ -14,6 +14,9 @@ import java.util.NoSuchElementException;
 public class InterfaceAboutLinkedListImpl {
 
     public static void main(String[] args) {
+
+        System.out.println("自定义实现一个LinkedList：");
+
         // init
         LinkedList linkedList = new LinkedList();
         int listSize = 100;

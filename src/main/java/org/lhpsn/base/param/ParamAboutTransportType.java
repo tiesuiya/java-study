@@ -12,23 +12,19 @@ package org.lhpsn.base.param;
 public class ParamAboutTransportType {
 
     public static void main(String[] args) {
+
         // 改变参数对象中的值
         Wrapper wrapper = new Wrapper("六", 6);
-        // 更改前
-        System.out.println(wrapper);
+        System.out.println("对象更改前：" + wrapper);
         changeObjInnerValue(wrapper);
-        // 更改后
-        System.out.println(wrapper);
+        System.out.println("对象更改后：" + wrapper);
 
         // 改变参数对象的值
         String valueStr = "六";
         Integer valueInt = 6;
-        // 更改前
-        System.out.println(valueStr + " - " + valueInt);
-        // 此处无效
+        System.out.println("参数更改前：" + valueStr + " - " + valueInt);
         changeParamValue(valueStr, valueInt);
-        // 更改后
-        System.out.println(valueStr + " - " + valueInt);
+        System.out.println("参数更改后：" + valueStr + " - " + valueInt);
     }
 
     /**
