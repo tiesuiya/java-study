@@ -11,6 +11,7 @@ import java.io.*;
 public class SerializableAboutClone {
 
     public static void main(String[] args) throws Exception {
+
         SerializableAboutClone serializableAboutClone = new SerializableAboutClone();
 
         Car car = new Car("Benz", 300);
@@ -35,7 +36,7 @@ public class SerializableAboutClone {
      *
      * @param obj 待克隆对象
      * @param <T> Serializable泛型限定，需要特别注意的是T所包含的对象也需要实现Serializable接口，这一点在编译时无法检查到！
-     * @return 克隆对象
+     * @return 克隆的对象
      * @throws Exception 克隆异常
      */
     public <T extends Serializable> T clone(T obj) throws Exception {
