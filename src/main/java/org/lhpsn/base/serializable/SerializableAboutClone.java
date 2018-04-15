@@ -12,21 +12,23 @@ public class SerializableAboutClone {
 
     public static void main(String[] args) throws Exception {
 
+        System.out.println("使用序列化实现对象克隆：");
+
         SerializableAboutClone serializableAboutClone = new SerializableAboutClone();
 
         Car car = new Car("Benz", 300);
         Person person1 = new Person("Hao LUO", 33, car);
         System.out.println("person1:");
-        System.out.println(person1);
+        System.out.println(person1 + "\n");
 
         // 深度克隆
-        Person person2 = serializableAboutClone.clone(person1);
+        Person person2 = serializableAboutClone.clone2(person1);
         System.out.println("person2:");
-        System.out.println(person2);
+        System.out.println(person2 + "\n");
 
         System.out.println("修改person2，打印person1:");
         person2.getCar().setBrand("BYD");
-        System.out.println(person1);
+        System.out.println(person1 + "\n");
 
         System.out.println("person1关联的汽车不会受到任何影响");
     }
@@ -48,6 +50,16 @@ public class SerializableAboutClone {
         // 这两个基于内存的流只要垃圾回收器清理对象就能够释放资源，这一点不同于对外部资源（如文件流）的释放
         ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bin);
+        return (T) ois.readObject();
+    }
+
+    public <T extends Serializable> T clone2(T object) throws Exception{
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(object);
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
         return (T) ois.readObject();
     }
 }

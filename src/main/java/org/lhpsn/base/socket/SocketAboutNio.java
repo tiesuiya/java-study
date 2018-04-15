@@ -1,7 +1,8 @@
 package org.lhpsn.base.socket;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -16,14 +17,19 @@ import java.util.Set;
  * @author lh
  * @since 1.0.0
  */
-public class SocketAboutNIO {
+public class SocketAboutNio {
 
     public static void main(String[] args) throws IOException {
+
+        System.out.println("使用Nio实现异步服务器");
+
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
+        // 设置阻塞为false
         serverSocketChannel.configureBlocking(false);
         serverSocketChannel.bind(new InetSocketAddress(7777));
         System.out.println(String.format("Server Start with %s", serverSocketChannel.getLocalAddress()));
 
+        // 注册selector为accept
         Selector selector = Selector.open();
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         ByteBuffer buffer = ByteBuffer.allocate(1024);
@@ -48,10 +54,10 @@ public class SocketAboutNIO {
                 }
                 if (key.isReadable()) {
                     SocketChannel clientChannel = (SocketChannel) key.channel();
+                    buffer.clear();
                     clientChannel.read(buffer);
                     String request = new String(buffer.array()).trim();
                     System.out.println(String.format("Request from %s ‘%s’", clientChannel.getRemoteAddress(), request));
-                    buffer.clear();
                     String response = "Hello " + request;
                     clientChannel.write(ByteBuffer.wrap((response + "\n").getBytes()));
                 }
