@@ -16,6 +16,7 @@ public class SocketAboutSingleThread {
     public static void main(String[] args) throws IOException {
 
         // test please call : telnet localhost 7777
+        System.out.println("");
 
         try (ServerSocket serverSocket = new ServerSocket(7777)) {
             String serverAddress = serverSocket.getLocalSocketAddress().toString();
