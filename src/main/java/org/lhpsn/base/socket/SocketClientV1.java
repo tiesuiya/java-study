@@ -7,18 +7,20 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
- * Socket Client
+ * Socket Client v1
+ * 实现：
+ * 一读一写
+ * 支持中文
  *
  * @author lh
  * @since 1.0.0
  */
-public class SocketClient {
+public class SocketClientV1 {
 
     public static void main(String[] args) throws Exception {
 
-        // 启动客户端 请配合使用SocketAboutSingleThread
-        SocketClient client = new SocketClient("localhost", 7777);
-        client.startClient();
+        SocketClientV1 client = new SocketClientV1("127.0.0.1", 7777);
+        client.start();
     }
 
     private String ip = null;
@@ -27,12 +29,17 @@ public class SocketClient {
     private DataOutputStream dos = null;
     private Scanner scanner = null;
 
-    public SocketClient(String ip, Integer port) throws IOException {
+    public SocketClientV1(String ip, Integer port) throws IOException {
         this.ip = ip;
         this.port = port;
         init();
     }
 
+    /**
+     * Init Client
+     *
+     * @throws IOException IO Exception
+     */
     private void init() throws IOException {
         Socket client = new Socket(ip, port);
         dos = new DataOutputStream(client.getOutputStream());
@@ -40,17 +47,23 @@ public class SocketClient {
         scanner = new Scanner(System.in);
     }
 
-    public void startClient() throws IOException, InterruptedException {
+    /**
+     * Start Client
+     *
+     * @throws IOException IO Exception
+     */
+    public void start() throws IOException {
         while (true) {
-            // 先写
+            // write
             String clientMsg = scanner.nextLine();
             dos.writeUTF(clientMsg);
             dos.flush();
 
-            // 再读
-            String serverMsg = dis.readUTF();
+            // read
+            byte[] bytes = new byte[1024];
+            int length = dis.read(bytes);
+            String serverMsg = new String(bytes, 0, length);
             System.out.println(serverMsg);
         }
     }
-
 }

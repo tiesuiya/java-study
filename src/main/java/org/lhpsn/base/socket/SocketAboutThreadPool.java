@@ -1,5 +1,7 @@
 package org.lhpsn.base.socket;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -64,9 +66,10 @@ class ClientHandle implements Runnable {
         String clientAddress = clientSocket.getRemoteSocketAddress().toString();
         System.out.println(String.format("Client connected from %s", clientAddress));
 
-        try (Scanner scanner = new Scanner(clientSocket.getInputStream())) {
+        try (DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
+             DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream())) {
             while (true) {
-                String clientMessage = scanner.nextLine();
+                String clientMessage = dataInputStream.readUTF();
                 System.out.println(String.format("Request from %s ‘%s’", clientAddress, clientMessage));
 
                 if ("exit".equals(clientMessage)) {
@@ -74,8 +77,9 @@ class ClientHandle implements Runnable {
                 }
 
                 // write message to client
-                String serverMessage = "He " + clientMessage;
-                clientSocket.getOutputStream().write((serverMessage + "\n").getBytes());
+                String serverMessage = "Hello " + clientMessage;
+                dataOutputStream.write(serverMessage.getBytes());
+                dataOutputStream.flush();
                 System.out.println(String.format("Response to %s ’%s’", clientAddress, serverMessage));
             }
         } catch (IOException e) {

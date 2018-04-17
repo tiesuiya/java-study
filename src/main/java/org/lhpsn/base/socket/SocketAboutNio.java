@@ -32,7 +32,7 @@ public class SocketAboutNio {
         // 注册selector为accept
         Selector selector = Selector.open();
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        ByteBuffer buffer;
 
         while (true) {
             int selected = selector.select();
@@ -57,10 +57,10 @@ public class SocketAboutNio {
                     // TODO 改为清空对象
                     buffer = ByteBuffer.allocate(1024);
                     clientChannel.read(buffer);
-                    String request = new String(buffer.array()).trim();
+                    String request = new String(buffer.array(), "UTF-8").trim();
                     System.out.println(String.format("Request from %s ‘%s’", clientChannel.getRemoteAddress(), request));
                     String response = "Hello " + request;
-                    clientChannel.write(ByteBuffer.wrap((response + "\n").getBytes()));
+                    clientChannel.write(ByteBuffer.wrap((response).getBytes()));
                 }
                 // remove
                 keyIterator.remove();

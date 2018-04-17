@@ -16,32 +16,30 @@ public class SocketAboutSingleThread {
 
     public static void main(String[] args) throws IOException {
 
-        // test please call : telnet localhost 7777
-
         try (ServerSocket serverSocket = new ServerSocket(7777)) {
-            String serverAddress = serverSocket.getLocalSocketAddress().toString();
-            System.out.println(String.format("Server Start with %s", serverAddress));
+            System.out.println(String.format("Server Start with %s", serverSocket.getLocalSocketAddress()));
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                String clientAddress = clientSocket.getLocalSocketAddress().toString();
-                System.out.println(String.format("Client connected from %s", clientAddress));
+                System.out.println(String.format("Client connected from %s", clientSocket.getLocalSocketAddress()));
 
                 try (DataInputStream dataInputStream = new DataInputStream(clientSocket.getInputStream());
                      DataOutputStream dataOutputStream = new DataOutputStream(clientSocket.getOutputStream())) {
 
                     while (true) {
+                        // read
                         String clientMessage = dataInputStream.readUTF();
-                        System.out.println(String.format("Request from %s ‘%s’", clientAddress, clientMessage));
+                        System.out.println(String.format("Request from %s ‘%s’", clientSocket.getLocalSocketAddress(), clientMessage));
 
                         if ("exit".equals(clientMessage)) {
                             break;
                         }
 
-                        // write message to client
+                        // write
                         String serverMessage = "Hello " + clientMessage;
-                        dataOutputStream.writeUTF(serverMessage);
-                        System.out.println(String.format("Response to %s ’%s’", clientAddress, serverMessage));
+                        dataOutputStream.write(serverMessage.getBytes());
+                        dataOutputStream.flush();
+                        System.out.println(String.format("Response to %s ’%s’", clientSocket.getLocalSocketAddress(), serverMessage));
                     }
                 }
             }
