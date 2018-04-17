@@ -54,7 +54,8 @@ public class SocketAboutNio {
                 }
                 if (key.isReadable()) {
                     SocketChannel clientChannel = (SocketChannel) key.channel();
-                    buffer.clear();
+                    // TODO 改为清空对象
+                    buffer = ByteBuffer.allocate(1024);
                     clientChannel.read(buffer);
                     String request = new String(buffer.array()).trim();
                     System.out.println(String.format("Request from %s ‘%s’", clientChannel.getRemoteAddress(), request));
