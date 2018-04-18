@@ -23,11 +23,35 @@ public class SocketClientV1 {
         client.start();
     }
 
-    private String ip = null;
-    private Integer port = null;
-    private DataInputStream dis = null;
-    private DataOutputStream dos = null;
-    private Scanner scanner = null;
+    /**
+     * IP参数
+     */
+    private String ip;
+
+    /**
+     * 端口参数
+     */
+    private Integer port;
+
+    /**
+     * Socket客户端
+     */
+    private Socket client;
+
+    /**
+     * 数据输出流
+     */
+    private DataInputStream dis;
+
+    /**
+     * 数据输入流
+     */
+    private DataOutputStream dos;
+
+    /**
+     * 键盘输入流
+     */
+    private Scanner scanner;
 
     public SocketClientV1(String ip, Integer port) throws IOException {
         this.ip = ip;
@@ -41,7 +65,7 @@ public class SocketClientV1 {
      * @throws IOException IO Exception
      */
     private void init() throws IOException {
-        Socket client = new Socket(ip, port);
+        client = new Socket(ip, port);
         dos = new DataOutputStream(client.getOutputStream());
         dis = new DataInputStream(client.getInputStream());
         scanner = new Scanner(System.in);
