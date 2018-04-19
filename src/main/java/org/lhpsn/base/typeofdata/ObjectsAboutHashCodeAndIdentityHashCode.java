@@ -15,6 +15,7 @@ package org.lhpsn.base.typeofdata;
 public class ObjectsAboutHashCodeAndIdentityHashCode {
 
     public static void main(String[] args) {
+
         String s1 = "Programming";
         String s2 = new String("Programming");
 
@@ -25,6 +26,9 @@ public class ObjectsAboutHashCodeAndIdentityHashCode {
         // a a
         System.out.println(s1.hashCode());
         System.out.println(s2.hashCode());
+
+        // false
+        System.out.println(s1 == s2);
     }
 
 }

@@ -11,14 +11,16 @@ import org.lhpsn.base.typeofdata.common.TreeNode;
 public class BinaryTreeAboutDerivation {
 
     public static void main(String[] args) {
+
         // 前序遍历和中序遍历推导树节点
         BinaryTreeAboutDerivation derivation = new BinaryTreeAboutDerivation();
         BinaryTreeAboutTraversal traversal = new BinaryTreeAboutTraversal();
-        traversal.preOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
-        System.out.println();
-        traversal.inOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
-        System.out.println();
-        traversal.postOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
+        derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF");
+//        traversal.preOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
+//        System.out.println();
+//        traversal.inOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
+//        System.out.println();
+//        traversal.postOrder(derivation.createTreeNodeByPreValueAndInValue("ABDEGCF", "DBEGACF"));
     }
 
     /**
@@ -32,10 +34,13 @@ public class BinaryTreeAboutDerivation {
         if (preOrder.isEmpty()) {
             return null;
         }
-        TreeNode root = new TreeNode(preOrder.charAt(0));
-        // 左子树长度
-        int leftLength = inOrder.indexOf(preOrder.charAt(0));
 
+        // 根节点值
+        char rootValue = preOrder.charAt(0);
+        // 创建根节点
+        TreeNode root = new TreeNode(rootValue);
+        // 通过根节点和中序排序内容，计算左子树长度
+        int leftLength = inOrder.indexOf(rootValue);
 
         root.setRightNode(
                 createTreeNodeByPreValueAndInValue(
@@ -49,11 +54,14 @@ public class BinaryTreeAboutDerivation {
                         inOrder.substring(0, leftLength)
                 )
         );
+
         return root;
     }
 
+    /**
+     * TODO 前序遍历和后序遍历推导中序遍历 这个结果会有多个
+     */
     public void todo() {
-        // TODO 前序遍历和后序遍历推导中序遍历
-        // 这个结果会有多个
     }
+
 }

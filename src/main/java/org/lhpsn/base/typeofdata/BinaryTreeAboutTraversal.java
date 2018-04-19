@@ -11,15 +11,23 @@ import org.lhpsn.base.typeofdata.common.TreeNode;
 public class BinaryTreeAboutTraversal {
 
     public static void main(String[] args) {
+
         BinaryTreeAboutTraversal traversal = new BinaryTreeAboutTraversal();
 
+        //       a
+        //    b     c
+        //  d  e      f
+        //       g
         TreeNode treeNode = TreeNode.createSimpleTreeNode();
+        System.out.print("前序遍历：");
         traversal.preOrder(treeNode);
         System.out.println();
 
+        System.out.print("中序遍历：");
         traversal.inOrder(treeNode);
         System.out.println();
 
+        System.out.print("后序遍历：");
         traversal.postOrder(treeNode);
     }
 

@@ -12,6 +12,7 @@ package org.lhpsn.base.typeofdata;
 public class StringAboutAdd {
 
     public static void main(String[] args) {
+
         String str1 = "Programming";
         String str2 = "Program";
         String str3 = "ming";
