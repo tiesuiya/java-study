@@ -17,7 +17,7 @@ import java.util.Set;
  * @author lh
  * @since 1.0.0
  */
-public class SocketAboutNio {
+public class TcpSocketServerAboutNio {
 
     public static void main(String[] args) throws IOException {
 

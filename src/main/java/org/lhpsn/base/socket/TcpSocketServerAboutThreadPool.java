@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
  * @author lh
  * @since 1.0.0
  */
-public class SocketAboutThreadPool {
+public class TcpSocketServerAboutThreadPool {
 
     public static void main(String[] args) throws IOException {
         new ThreadPoolServer().run();
@@ -27,7 +27,7 @@ public class SocketAboutThreadPool {
  */
 class ThreadPoolServer implements Runnable {
 
-    private static ExecutorService pool = Executors.newFixedThreadPool(2);
+    private ExecutorService pool = Executors.newFixedThreadPool(2);
 
     @Override
     public void run() {

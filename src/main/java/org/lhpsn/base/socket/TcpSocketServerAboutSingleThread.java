@@ -12,7 +12,7 @@ import java.net.Socket;
  * @author lh
  * @since 1.0.0
  */
-public class SocketAboutSingleThread {
+public class TcpSocketServerAboutSingleThread {
 
     public static void main(String[] args) throws IOException {
 

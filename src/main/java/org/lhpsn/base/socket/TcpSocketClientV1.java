@@ -15,11 +15,11 @@ import java.util.Scanner;
  * @author lh
  * @since 1.0.0
  */
-public class SocketClientV1 {
+public class TcpSocketClientV1 {
 
     public static void main(String[] args) throws Exception {
 
-        SocketClientV1 client = new SocketClientV1("127.0.0.1", 7777);
+        TcpSocketClientV1 client = new TcpSocketClientV1("127.0.0.1", 7777);
         client.start();
     }
 
@@ -53,7 +53,7 @@ public class SocketClientV1 {
      */
     private Scanner scanner;
 
-    public SocketClientV1(String ip, Integer port) throws IOException {
+    public TcpSocketClientV1(String ip, Integer port) throws IOException {
         this.ip = ip;
         this.port = port;
         init();
