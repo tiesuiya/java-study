@@ -1,7 +1,5 @@
 package org.lhpsn.codingskill.interview.question;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -17,7 +15,7 @@ public class GoogleAboutBeautifulNumberSmallData {
 
     public static void main(String[] args) {
         GoogleAboutBeautifulNumberSmallData beautifulNumber = new GoogleAboutBeautifulNumberSmallData();
-        Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+        Scanner in = new Scanner(System.in);
         // 首位表示个数
         int cases = in.nextInt();
         for (int i = 1; i <= cases; ++i) {
