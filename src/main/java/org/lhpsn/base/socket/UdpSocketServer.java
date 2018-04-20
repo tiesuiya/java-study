@@ -13,12 +13,8 @@ public class UdpSocketServer {
 
     public static void main(String[] args) {
 
-        try {
-            UdpSocketServer udpSocketServer = new UdpSocketServer(6666);
-            udpSocketServer.start();
-        } catch (SocketException e) {
-            System.out.println("启动UDP服务端时发生异常！");
-        }
+        UdpSocketServer udpSocketServer = new UdpSocketServer(6666);
+        udpSocketServer.start();
     }
 
     /**
@@ -57,7 +53,7 @@ public class UdpSocketServer {
      * @param port 服务器端口
      * @throws SocketException Socket异常
      */
-    public UdpSocketServer(int port) throws SocketException {
+    public UdpSocketServer(int port) {
         this.serverPort = port;
         init();
     }
@@ -67,8 +63,13 @@ public class UdpSocketServer {
      *
      * @throws SocketException Init exception
      */
-    private void init() throws SocketException {
-        server = new DatagramSocket(serverPort);
+    private void init() {
+        try {
+            server = new DatagramSocket(serverPort);
+        } catch (SocketException e) {
+            System.out.println("启动UDP服务端时发生异常！");
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -82,7 +83,8 @@ public class UdpSocketServer {
                 receiveMsg = receive();
                 send(receiveMsg);
             } catch (IOException e) {
-                throw new RuntimeException("传输异常！");
+                System.out.println("传输异常！");
+                throw new RuntimeException(e);
             }
         }
     }

@@ -14,14 +14,8 @@ public class UdpSocketClient {
 
     public static void main(String[] args) {
 
-        try {
-            UdpSocketClient udpSocketClient = new UdpSocketClient("127.0.0.1", 6666);
-            udpSocketClient.start();
-        } catch (SocketException e) {
-            System.out.println("启动UDP客户端时发生异常！");
-        } catch (UnknownHostException e) {
-            System.out.println("端口异常！");
-        }
+        UdpSocketClient udpSocketClient = new UdpSocketClient("127.0.0.1", 6666);
+        udpSocketClient.start();
     }
 
     /**
@@ -33,6 +27,11 @@ public class UdpSocketClient {
      * Server address
      */
     private InetAddress serverAddress;
+
+    /**
+     * Server ip
+     */
+    private String serverIp;
 
     /**
      * Server port
@@ -67,8 +66,8 @@ public class UdpSocketClient {
      * @throws SocketException      Socket异常
      * @throws UnknownHostException 未知端口异常
      */
-    public UdpSocketClient(String ip, int port) throws SocketException, UnknownHostException {
-        this.serverAddress = InetAddress.getByName(ip);
+    public UdpSocketClient(String ip, int port) {
+        this.serverIp = ip;
         this.serverPort = port;
         init();
     }
@@ -78,8 +77,17 @@ public class UdpSocketClient {
      *
      * @throws SocketException Init exception
      */
-    private void init() throws SocketException {
-        client = new DatagramSocket();
+    private void init() {
+        try {
+            serverAddress = InetAddress.getByName(serverIp);
+            client = new DatagramSocket();
+        } catch (SocketException e) {
+            System.out.println("启动UDP客户端时发生异常！");
+            throw new RuntimeException(e);
+        } catch (UnknownHostException e) {
+            System.out.println("主机异常！");
+            throw new RuntimeException(e);
+        }
         scanner = new Scanner(System.in);
     }
 
@@ -96,7 +104,8 @@ public class UdpSocketClient {
                 // Print server message
                 System.out.println(serverMsg);
             } catch (IOException e) {
-                throw new RuntimeException("传输异常！");
+                System.out.println("传输异常！");
+                throw new RuntimeException(e);
             }
         }
     }
