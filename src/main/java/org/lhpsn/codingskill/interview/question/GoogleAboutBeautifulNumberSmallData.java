@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class GoogleAboutBeautifulNumberSmallData {
 
     public static void main(String[] args) {
+
         GoogleAboutBeautifulNumberSmallData beautifulNumber = new GoogleAboutBeautifulNumberSmallData();
         Scanner in = new Scanner(System.in);
         // 首位表示个数
