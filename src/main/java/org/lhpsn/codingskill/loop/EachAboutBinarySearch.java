@@ -20,23 +20,26 @@ public class EachAboutBinarySearch {
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1, 2}));
+
         // 边界测试
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{6}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{6, 1}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1, 6}));
+
         // 随机测试
         Random random = new Random();
-        int arrLength = random.nextInt(10);
+        // 1~10随机数
+        int arrLength = random.nextInt(10) + 1;
         int[] arr = new int[arrLength];
         int hold = 0;
         for (int i = 0; i < arrLength; i++) {
             hold += random.nextInt(10);
             arr[i] = hold;
         }
-        int k = random.nextInt(arr[arrLength - 1]);
+        int k = arr[random.nextInt(arrLength)];
         int result = eachBinarySearch.binarySearchV1(k, arr);
-        System.out.println(Arrays.asList(arr).toString());
-        System.out.println("测试值：" + k + "，在数组" + arr + "中的查找结果为：" + result);
+        System.out.println("测试值：" + k + "，在数组" + Arrays.toString(arr) + "中的查找结果为：" + result);
+
     }
 
     /**
