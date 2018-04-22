@@ -1,7 +1,5 @@
 package org.lhpsn.codingskill.interview.question;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -16,8 +14,9 @@ import java.util.Scanner;
 public class GoogleAboutBeautifulNumberLargeData {
 
     public static void main(String[] args) {
+
         GoogleAboutBeautifulNumberLargeData beautifulNumber = new GoogleAboutBeautifulNumberLargeData();
-        Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+        Scanner in = new Scanner(System.in);
         // 首位表示个数
         int cases = in.nextInt();
         for (int i = 1; i <= cases; ++i) {
@@ -83,11 +82,13 @@ public class GoogleAboutBeautifulNumberLargeData {
         long sum = 0;
         // 等差计算 1 + 1*radix^1 + 1*radix^2 +  ... + 1*radix^(bits-1)
         for (int bit = 0; bit < bits; bit++) {
+            // 防止溢出
             if (sum > Long.MAX_VALUE - component) {
                 return Long.MAX_VALUE;
             }
             sum += component;
             // 更新hold值
+            // 防止溢出
             if (component > Long.MAX_VALUE / radix) {
                 component = Long.MAX_VALUE;
             } else {
