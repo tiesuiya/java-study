@@ -47,7 +47,7 @@ public class SpeedTestAboutLinkedList {
         EachAboutLinkedList eachCreator = new EachAboutLinkedList();
         EachAboutLinkedListReverse eachReverse = new EachAboutLinkedListReverse();
         // create
-        Node nodeEach = eachCreator.createLargeLinkedList(integerArray);
+        Node nodeEach = eachCreator.createLinkedList(integerArray);
         System.out.println("循环创建" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
         timestamp = System.currentTimeMillis();
         // reverse

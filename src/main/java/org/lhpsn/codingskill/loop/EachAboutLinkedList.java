@@ -14,8 +14,9 @@ import java.util.List;
 public class EachAboutLinkedList {
 
     public static void main(String[] args) {
+
         EachAboutLinkedList eachCreator = new EachAboutLinkedList();
-        Node.printNode(eachCreator.createLargeLinkedList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+        Node.printNode(eachCreator.createLinkedList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
     }
 
     /**
@@ -26,10 +27,10 @@ public class EachAboutLinkedList {
      * - 3.每次必须向前推进循环不变式中涉及的变量值
      * - 4.每次缩小规模必须为1
      *
-     * @param integers Integer数组
+     * @param integers Integer集合
      * @return 链表首个节点
      */
-    public Node createLargeLinkedList(List<Integer> integers) {
+    public Node createLinkedList(List<Integer> integers) {
         Node prev = null;
         Node head = null;
         for (int i = 0; i < integers.size(); i++) {

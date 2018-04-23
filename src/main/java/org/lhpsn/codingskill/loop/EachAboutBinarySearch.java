@@ -16,15 +16,12 @@ public class EachAboutBinarySearch {
 
         EachAboutBinarySearch eachBinarySearch = new EachAboutBinarySearch();
 
-        // 长度测试
-        System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{}));
-        System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1}));
-        System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1, 2}));
-
         // 边界测试
+        System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{6}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{6, 1}));
         System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1, 6}));
+        System.out.println(eachBinarySearch.binarySearchV1(6, new int[]{1, 6, 2}));
 
         // 随机测试
         Random random = new Random();
