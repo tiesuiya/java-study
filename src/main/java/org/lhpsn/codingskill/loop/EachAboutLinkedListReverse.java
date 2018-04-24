@@ -19,6 +19,7 @@ public class EachAboutLinkedListReverse {
         RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
         EachAboutLinkedListReverse eachReverse = new EachAboutLinkedListReverse();
 
+        // 边界测试
         Node.printNode(eachReverse.reverseLinkedList(recursiveCreator.createLinkedList(new ArrayList<Integer>())));
         Node.printNode(eachReverse.reverseLinkedList(recursiveCreator.createLinkedList(Arrays.asList(1))));
         Node.printNode(eachReverse.reverseLinkedList(recursiveCreator.createLinkedList(Arrays.asList(1, 2, 3, 5, 6, 7))));
