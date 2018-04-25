@@ -9,6 +9,7 @@ package org.lhpsn.codingskill.recursion;
 public class RecursiveAboutGuass {
 
     public static void main(String[] args) {
+
         System.out.println(sum(100));
     }
 
@@ -16,7 +17,7 @@ public class RecursiveAboutGuass {
      * 递归求和
      *
      * @param max 需要统计sum的结尾数
-     * @return
+     * @return 和值
      */
     private static int sum(int max) {
         if (max == 1) {
@@ -24,5 +25,4 @@ public class RecursiveAboutGuass {
         }
         return sum(max - 1) + max;
     }
-
 }

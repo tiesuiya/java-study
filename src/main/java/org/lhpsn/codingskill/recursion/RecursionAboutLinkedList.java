@@ -15,8 +15,10 @@ import java.util.List;
 public class RecursiveAboutLinkedList {
 
     public static void main(String[] args) {
+
         RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
 
+        // 边界测试
         Node.printNode(recursiveCreator.createLinkedList(new ArrayList<Integer>()));
         Node.printNode(recursiveCreator.createLinkedList(Arrays.asList(1)));
         Node.printNode(recursiveCreator.createLinkedList(Arrays.asList(1, 2, 3, 5, 6, 7)));
