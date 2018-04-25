@@ -3,8 +3,8 @@ package org.lhpsn.codingskill;
 import org.lhpsn.codingskill.common.Node;
 import org.lhpsn.codingskill.loop.EachAboutLinkedList;
 import org.lhpsn.codingskill.loop.EachAboutLinkedListReverse;
-import org.lhpsn.codingskill.recursion.RecursiveAboutLinkedList;
-import org.lhpsn.codingskill.recursion.RecursiveAboutLinkedListReverse;
+import org.lhpsn.codingskill.recursion.RecursionAboutLinkedList;
+import org.lhpsn.codingskill.recursion.RecursionAboutLinkedListReverse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ public class SpeedTestAboutLinkedList {
         long timestamp = System.currentTimeMillis();
 
         // 递归实现
-        RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
-        RecursiveAboutLinkedListReverse recursiveReverse = new RecursiveAboutLinkedListReverse();
+        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
+        RecursionAboutLinkedListReverse recursiveReverse = new RecursionAboutLinkedListReverse();
         // create
         Node nodeRecusive = recursiveCreator.createLinkedList(integerArray);
         System.out.println("递归创建" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));

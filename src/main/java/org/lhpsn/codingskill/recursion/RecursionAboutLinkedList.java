@@ -12,11 +12,11 @@ import java.util.List;
  * @author lh
  * @since 1.0.0
  */
-public class RecursiveAboutLinkedList {
+public class RecursionAboutLinkedList {
 
     public static void main(String[] args) {
 
-        RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
+        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
 
         // 边界测试
         Node.printNode(recursiveCreator.createLinkedList(new ArrayList<Integer>()));

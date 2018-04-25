@@ -1,7 +1,7 @@
 package org.lhpsn.codingskill.loop;
 
 import org.lhpsn.codingskill.common.Node;
-import org.lhpsn.codingskill.recursion.RecursiveAboutLinkedList;
+import org.lhpsn.codingskill.recursion.RecursionAboutLinkedList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class EachAboutLinkedListReverse {
 
     public static void main(String[] args) {
 
-        RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
+        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
         EachAboutLinkedListReverse eachReverse = new EachAboutLinkedListReverse();
 
         // 边界测试

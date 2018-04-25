@@ -10,11 +10,11 @@ import java.util.List;
  * @author lh
  * @since 1.0.0
  */
-public class RecursiveAboutCombination {
+public class RecursionAboutCombination {
 
     public static void main(String[] args) {
 
-        RecursiveAboutCombination combinationCreator = new RecursiveAboutCombination();
+        RecursionAboutCombination combinationCreator = new RecursionAboutCombination();
 
         // 边界测试
         print(combinationCreator.combination(new ArrayList<Integer>(), 0));

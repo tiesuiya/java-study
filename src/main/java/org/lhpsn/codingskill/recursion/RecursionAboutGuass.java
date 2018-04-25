@@ -6,7 +6,7 @@ package org.lhpsn.codingskill.recursion;
  * @author lh
  * @since 1.0.0
  */
-public class RecursiveAboutGuass {
+public class RecursionAboutGuass {
 
     public static void main(String[] args) {
 

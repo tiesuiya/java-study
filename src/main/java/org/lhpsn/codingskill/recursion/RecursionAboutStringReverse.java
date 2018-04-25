@@ -6,11 +6,11 @@ package org.lhpsn.codingskill.recursion;
  * @author lh
  * @since 1.0.0
  */
-public class RecursiveAboutStringReverse {
+public class RecursionAboutStringReverse {
 
     public static void main(String[] args) {
 
-        RecursiveAboutStringReverse recursiveReverse = new RecursiveAboutStringReverse();
+        RecursionAboutStringReverse recursiveReverse = new RecursionAboutStringReverse();
 
         System.out.println(recursiveReverse.reverse("0123456789"));
     }

@@ -11,12 +11,12 @@ import java.util.Arrays;
  * @author lh
  * @since 1.0.0
  */
-public class RecursiveAboutLinkedListReverse {
+public class RecursionAboutLinkedListReverse {
 
     public static void main(String[] args) {
 
-        RecursiveAboutLinkedListReverse recursiveReverse = new RecursiveAboutLinkedListReverse();
-        RecursiveAboutLinkedList recursiveCreator = new RecursiveAboutLinkedList();
+        RecursionAboutLinkedListReverse recursiveReverse = new RecursionAboutLinkedListReverse();
+        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
 
         Node.printNode(recursiveReverse.reverseLinkedList(recursiveCreator.createLinkedList(new ArrayList<Integer>())));
         Node.printNode(recursiveReverse.reverseLinkedList(recursiveCreator.createLinkedList(Arrays.asList(1))));
