@@ -12,12 +12,15 @@ import java.util.Comparator;
 public class SortAboutBubbleSort {
 
     public static void main(String[] args) {
+
         SortAboutBubbleSort sortAboutBubbleSort = new SortAboutBubbleSort();
 
+        // 冒泡排序
         Integer[] array = new Integer[]{111, 32, 3, 45, 6, 1};
         sortAboutBubbleSort.sort(array);
         System.out.println(Arrays.asList(array));
 
+        // 冒泡排序（自定义排序重载）
         array = new Integer[]{33, 322, 13, 45, 14, 5};
         sortAboutBubbleSort.sort(array, new Comparator<Integer>() {
             @Override
@@ -26,6 +29,9 @@ public class SortAboutBubbleSort {
             }
         });
         System.out.println(Arrays.asList(array));
+    }
+    public <T extends Comparable<T>> void sort1(T[] list) {
+
     }
 
     /**
