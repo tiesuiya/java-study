@@ -20,30 +20,15 @@ public class SpeedTestAboutLinkedList {
 
     public static void main(String[] args) {
 
-        int size = 7000;
-        List<Integer> integerArray = createIntegerArray(size);
-
-        long timestamp = System.currentTimeMillis();
-
-        // 递归实现
-        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
-        RecursionAboutLinkedListReverse recursiveReverse = new RecursionAboutLinkedListReverse();
-        // create
-        Node nodeRecusive = recursiveCreator.createLinkedList(integerArray);
-        System.out.println("递归创建" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
-        timestamp = System.currentTimeMillis();
-        // reverse
-        recursiveReverse.reverseLinkedList(nodeRecusive);
-        System.out.println("递归反转" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
-
-
-        // 递归直接StackOverflow了，这里重新给值
-        size = 10000000;
-        integerArray = createIntegerArray(size);
-        // 重新计时
-        timestamp = System.currentTimeMillis();
+        List<Integer> integerArray;
+        int size;
+        long timestamp;
 
         // 循环实现
+        size = 7000;
+        integerArray = createIntegerArray(size);
+        // 计时开始
+        timestamp = System.currentTimeMillis();
         EachAboutLinkedList eachCreator = new EachAboutLinkedList();
         EachAboutLinkedListReverse eachReverse = new EachAboutLinkedListReverse();
         // create
@@ -53,6 +38,22 @@ public class SpeedTestAboutLinkedList {
         // reverse
         eachReverse.reverseLinkedList(nodeEach);
         System.out.println("循环反转" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
+
+        // 递归实现
+        // 循环实现
+        size = 7000;
+        integerArray = createIntegerArray(size);
+        // 计时开始
+        timestamp = System.currentTimeMillis();
+        RecursionAboutLinkedList recursiveCreator = new RecursionAboutLinkedList();
+        RecursionAboutLinkedListReverse recursiveReverse = new RecursionAboutLinkedListReverse();
+        // create
+        Node nodeRecursion = recursiveCreator.createLinkedList(integerArray);
+        System.out.println("递归创建" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
+        timestamp = System.currentTimeMillis();
+        // reverse
+        recursiveReverse.reverseLinkedList(nodeRecursion);
+        System.out.println("递归反转" + size + "条数据耗时（ms）：" + (System.currentTimeMillis() - timestamp));
 
         System.out.println("done");
 
@@ -77,7 +78,7 @@ public class SpeedTestAboutLinkedList {
      * @return 数组对象
      */
     private static List<Integer> createIntegerArray(int size) {
-        List<Integer> integers = new ArrayList<Integer>();
+        List<Integer> integers = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             integers.add(new Random().nextInt(10000));
         }

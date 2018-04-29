@@ -33,8 +33,8 @@ public class EachAboutLinkedList {
     public Node createLinkedList(List<Integer> integers) {
         Node prev = null;
         Node head = null;
-        for (int i = 0; i < integers.size(); i++) {
-            Node node = new Node(integers.get(i));
+        for (Integer integer : integers) {
+            Node node = new Node(integer);
             if (prev != null) {
                 prev.setNext(node);
             } else {
