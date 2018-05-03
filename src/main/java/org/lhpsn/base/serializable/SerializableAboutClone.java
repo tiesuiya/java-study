@@ -22,7 +22,7 @@ public class SerializableAboutClone {
         System.out.println(person1 + "\n");
 
         // 深度克隆
-        Person person2 = serializableAboutClone.clone2(person1);
+        Person person2 = serializableAboutClone.clone(person1);
         System.out.println("person2:");
         System.out.println(person2 + "\n");
 
@@ -50,16 +50,6 @@ public class SerializableAboutClone {
         // 这两个基于内存的流只要垃圾回收器清理对象就能够释放资源，这一点不同于对外部资源（如文件流）的释放
         ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bin);
-        return (T) ois.readObject();
-    }
-
-    public <T extends Serializable> T clone2(T object) throws Exception{
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(object);
-
-        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-        ObjectInputStream ois = new ObjectInputStream(bis);
         return (T) ois.readObject();
     }
 }
