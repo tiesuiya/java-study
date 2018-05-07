@@ -50,23 +50,15 @@ public class AntfinAboutSeckill {
         SeckillService seckillService = new SeckillServiceImpl();
 
         long beginTime = System.currentTimeMillis();
-        System.out.println("----------------------------");
-        System.out.println("多线程秒杀开始:");
-        System.out.println("本次秒杀商品数量为:" + M_GOODS_NUM);
-        System.out.println("本次秒杀买家数量为:" + N_USER_NUM);
-        System.out.println("----------------------------\n");
+        System.out.println(String.format("秒杀开始，商品数量%d，买家数量%d\n", M_GOODS_NUM, N_USER_NUM));
 
         // 执行秒杀
         List<Goods> completeGoodsList = seckillService.doSeckill(goodsList, userList);
 
-        System.out.println("\n----------------------------");
-        System.out.println("秒杀结束:");
-        System.out.println("本次秒杀商品，信息列表如下:");
+        System.out.println(String.format("\n秒杀结束，总耗时%d（ms），商品秒杀信息如下:", (System.currentTimeMillis() - beginTime)));
         for (Goods goods : completeGoodsList) {
             System.out.println(goods);
         }
-        System.out.println("本次秒杀总耗时（ms）:" + (System.currentTimeMillis() - beginTime));
-        System.out.println("----------------------------");
     }
 }
 
@@ -213,7 +205,7 @@ class SeckillServiceImpl implements SeckillService {
                 // 检查买家是否已购买过（可优化:这里可以使用缓存来保存成功购买的用户，进而减少遍历，降低资源和时间消耗）
                 for (Goods goods : currentGoodsList) {
                     if (user.getBuyerId().equals(goods.getBuyerId())) {
-                        System.out.println("秒杀失败！买家（ID:" + user.getBuyerId() + "）已经购买过，不能重复购买！");
+                        System.out.println("Failed！买家（ID:" + user.getBuyerId() + "）已经购买过，不能重复购买！");
                         return;
                     }
                 }
@@ -221,9 +213,9 @@ class SeckillServiceImpl implements SeckillService {
                 // 检查商品是否被购买
                 if (goods.getBuyerId() == null) {
                     goods.setBuyerId(user.getBuyerId());
-                    System.out.println("秒杀成功！商品（ID:" + goods.getGoodsId() + "），买家（ID:" + user.getBuyerId() + "）");
+                    System.out.println("Success！商品（ID:" + goods.getGoodsId() + "），买家（ID:" + user.getBuyerId() + "）");
                 } else {
-                    System.out.println("秒杀失败！商品（ID:" + goods.getGoodsId() + "），买家（ID:" + user.getBuyerId() + "），商品已被秒杀！");
+                    System.out.println("Failed！商品（ID:" + goods.getGoodsId() + "），买家（ID:" + user.getBuyerId() + "），商品已被秒杀！");
                 }
             }
         }
