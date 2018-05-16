@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 关于组合的递归算法
+ * 关于组合的递归实现
  *
  * @author lh
  * @since 1.0.0

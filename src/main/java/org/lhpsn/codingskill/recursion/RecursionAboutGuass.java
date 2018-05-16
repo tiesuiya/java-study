@@ -1,7 +1,7 @@
 package org.lhpsn.codingskill.recursion;
 
 /**
- * 关于高斯的递归算法
+ * 关于高斯的递归实现
  *
  * @author lh
  * @since 1.0.0

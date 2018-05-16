@@ -21,7 +21,7 @@ public class AntfinAboutSeckill {
     /**
      * 买家数量
      */
-    private static final int N_USER_NUM = 100000;
+    private static final int N_USER_NUM = 1000;
 
     /**
      * 参加秒杀的商品集合
