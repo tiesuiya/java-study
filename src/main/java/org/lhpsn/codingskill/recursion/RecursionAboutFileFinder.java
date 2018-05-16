@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 文件文件查找的递归实现
+ * 文件查找的递归实现
  *
  * @author lh
  * @since 1.0.0
@@ -105,7 +105,7 @@ public class RecursionAboutFileFinder {
                 resultList.add(file);
             }
         } else {
-            // 默认遍历所有
+            // 默认添加所有
             resultList.add(file);
         }
     }
