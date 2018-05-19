@@ -54,6 +54,8 @@ public class AntfinAboutSeckill {
 
         // 执行秒杀
         List<Goods> completeGoodsList = seckillService.doSeckill(goodsList, userList);
+        Thread.sleep(5000);
+        completeGoodsList = seckillService.doSeckill(goodsList, userList);
 
         System.out.println(String.format("\n秒杀结束，总耗时%d（ms），商品秒杀信息如下:", (System.currentTimeMillis() - beginTime)));
         for (Goods goods : completeGoodsList) {
@@ -100,18 +102,12 @@ class SeckillServiceImpl implements SeckillService {
     /**
      * 秒杀执行器线程池
      */
-    private ExecutorService seckillActuatorPool = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(1024),
-            new ThreadFactoryBuilder().build(),
-            new ThreadPoolExecutor.AbortPolicy());
+    private ExecutorService seckillActuatorPool;
 
     /**
      * 秒杀任务线程池
      */
-    private ExecutorService seckillTaskPool = new ThreadPoolExecutor(100, 200, 0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(1024),
-            new ThreadFactoryBuilder().build(),
-            new ThreadPoolExecutor.AbortPolicy());
+    private ExecutorService seckillTaskPool;
 
     @Override
     public List<Goods> doSeckill(List<Goods> goodsList, List<User> userList) {
@@ -119,6 +115,16 @@ class SeckillServiceImpl implements SeckillService {
         this.currentGoodsList = goodsList;
         this.currentUserList = userList;
         this.running = true;
+
+        seckillTaskPool = new ThreadPoolExecutor(100, 200, 0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(1024),
+                new ThreadFactoryBuilder().build(),
+                new ThreadPoolExecutor.AbortPolicy());
+
+        seckillActuatorPool = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(1024),
+                new ThreadFactoryBuilder().build(),
+                new ThreadPoolExecutor.AbortPolicy());
 
         // 启动秒杀执行器
         seckillActuatorPool.submit(new SeckillActuator());

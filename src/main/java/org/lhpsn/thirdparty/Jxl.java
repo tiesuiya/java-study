@@ -28,7 +28,7 @@ public class Jxl {
      */
     private void integratedUse() throws IOException, WriteException {
         // 打开一个xls文件，没有的话程序会自动创建
-        WritableWorkbook order = Workbook.createWorkbook(new File("./target/JxlTest.xls"));
+        WritableWorkbook order = Workbook.createWorkbook(new File("target/JxlTest.xls"));
         // 生成一个工作表
         WritableSheet orderSheet = order.createSheet("第一页", 0);
 
