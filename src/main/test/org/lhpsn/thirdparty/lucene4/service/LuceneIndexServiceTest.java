@@ -4,6 +4,11 @@ import org.junit.Test;
 import org.lhpsn.thirdparty.lucene4.dto.IndexDTO;
 import org.lhpsn.thirdparty.lucene4.dto.IndexScheduleDTO;
 import org.lhpsn.thirdparty.lucene4.dto.SearchResultDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * lucene测试
@@ -13,21 +18,23 @@ import org.lhpsn.thirdparty.lucene4.dto.SearchResultDTO;
  */
 public class LuceneIndexServiceTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(LuceneIndexServiceTest.class);
+
     @Test
     public void testRefreshAndGetSchedule() throws Exception {
         LuceneIndexService luceneIndexService = new LuceneIndexServiceImpl();
-
-        System.out.println("index begin");
+        LOGGER.debug("index begin");
 
         luceneIndexService.syncRefreshAllIndex("/");
 
         IndexScheduleDTO dto = luceneIndexService.getSyncRefreshSchedule();
+        List<IndexScheduleDTO> resultList = new ArrayList<>();
         while (dto.getStatus().equals(IndexScheduleDTO.StatusEnum.RUNNING.getState())) {
-            System.out.println(dto);
             Thread.sleep(1000);
+            resultList.add(dto);
         }
-
-        System.out.println("index done");
+        LOGGER.debug("进度对象：{}", resultList);
+        LOGGER.debug("index done");
     }
 
 
@@ -35,13 +42,7 @@ public class LuceneIndexServiceTest {
     public void testDoSearcher() {
         LuceneIndexService luceneIndexService = new LuceneIndexServiceImpl();
 
-        SearchResultDTO<IndexDTO> result = luceneIndexService.doSearcher("计算", 1, 100);
-        if (null != result.getDatas() && result.getDatas().size() > 0) {
-            System.out.println(result.getDatas().size());
-            for (Object service : result.getDatas()) {
-                IndexDTO searchFile = (IndexDTO) service;
-                System.out.println(searchFile);
-            }
-        }
+        SearchResultDTO<IndexDTO> result = luceneIndexService.doSearcher("分", 1, 1000000);
+        LOGGER.debug("检索结果：{}", result);
     }
 }

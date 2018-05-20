@@ -39,7 +39,7 @@ interface LuceneConfig {
     /**
      * 扫描目录
      */
-    String FILE_DIR = "/Users/Hong/Documents/项目";
+    String FILE_DIR = "/Users/Hong/Documents/";
 
     /**
      * 扫描目录

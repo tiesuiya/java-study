@@ -65,7 +65,7 @@ public class IndexDTO {
         return "IndexDTO{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
-                ", contents='" + contents.replaceAll("\n", "\\\\n") + '\'' +
+                ", contents='" + contents + '\'' +
                 ", fileUrl='" + fileUrl + '\'' +
                 '}';
     }

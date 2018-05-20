@@ -20,6 +20,8 @@ import org.lhpsn.common.util.FileReaderUtil;
 import org.lhpsn.thirdparty.lucene4.dto.IndexDTO;
 import org.lhpsn.thirdparty.lucene4.dto.IndexScheduleDTO;
 import org.lhpsn.thirdparty.lucene4.dto.SearchResultDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import java.io.File;
@@ -41,6 +43,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class LuceneIndexServiceImpl implements LuceneIndexService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(LuceneIndexServiceImpl.class);
+
     /**
      * 索引执行器
      */
@@ -58,8 +62,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
             // 使用线程池建立索引
             indexExecutor.execute(files);
         } catch (IOException e) {
-            // TODO log
-            e.printStackTrace();
+            LOGGER.error("创建索引任务失败！");
         }
     }
 
@@ -87,9 +90,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 
             doIndexSingle(indexDTO);
         } catch (Exception e) {
-            // TODO log
-            System.out.println("索引失败：" + indexDTO.getFileUrl() + "（" + new Date() + "）");
-            e.printStackTrace();
+            LOGGER.error("索引失败：{}（{}）", indexDTO.getFileUrl(), new Date());
         }
     }
 
@@ -155,6 +156,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
                 // 通过内部编号从搜索器中得到对应的文档
                 Document doc = searcher.doc(hits[i].doc);
                 IndexDTO news = new IndexDTO();
+                news.setId(doc.getField(FIELD_ID).stringValue());
                 news.setTitle(doc.getField(FIELD_TITLE).stringValue());
                 news.setContents(doc.getField(FIELD_CONTENTS).stringValue());
                 news.setFileUrl(doc.getField(FIELD_URL).stringValue());
@@ -184,7 +186,6 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
                 ais.add(news);
             }
             lsr.setTime((System.currentTimeMillis() - begin) / 1000.0); // 计算搜索耗时秒数
-            System.out.println(System.currentTimeMillis() - begin);
             lsr.setDatas(ais); // 把查询到的数据添加到LuceneSearchResult
         } catch (IOException | ParseException | InvalidTokenOffsetsException e) {
             e.printStackTrace();
@@ -244,7 +245,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
 
             indexWriter.addDocument(doc);
 
-            System.out.println("索引成功：" + indexDTO.getFileUrl() + "（" + new Date() + "）");
+            LOGGER.debug("索引成功：{}（{}）", indexDTO.getFileUrl(), new Date());
         }
     }
 
@@ -285,7 +286,6 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
          * 索引进度
          */
         private IndexScheduleDTO holder;
-
 
         IndexExecutor() {
             init();

@@ -128,4 +128,19 @@ public class SearchResultDTO<T> {
     public void setTotalPage(int totalPage) {
         this.totalPage = totalPage;
     }
+
+    @Override
+    public String toString() {
+        return "SearchResultDTO{" +
+                "pageNo=" + pageNo +
+                ", pageSize=" + pageSize +
+                ", recordCount=" + recordCount +
+                ", time=" + time +
+                ", datas=" + datas +
+                ", startNo=" + startNo +
+                ", endNo=" + endNo +
+                ", keyword='" + keyword + '\'' +
+                ", totalPage=" + totalPage +
+                '}';
+    }
 }
