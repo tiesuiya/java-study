@@ -285,15 +285,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
         /**
          * 索引进度
          */
-        private IndexScheduleDTO holder;
-
-        IndexExecutor() {
-            init();
-        }
-
-        private void init() {
-            holder = new IndexScheduleDTO(IndexScheduleDTO.StatusEnum.IDLE.getState(), 0, 0);
-        }
+        private final IndexScheduleDTO holder = new IndexScheduleDTO(IndexScheduleDTO.StatusEnum.IDLE.getState(), 0, 0);
 
         /**
          * 执行建立索引
@@ -322,7 +314,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
                         new ThreadPoolExecutor.AbortPolicy());
 
                 for (File file : fileList) {
-                    indexTaskPool.submit(new IndexTask(holder, file));
+                    indexTaskPool.submit(new IndexTask(file));
                 }
             }
         }
@@ -342,33 +334,27 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
         private class IndexTask implements Runnable {
 
             /**
-             * 索引进度
-             */
-            private final IndexScheduleDTO currentHolder;
-
-            /**
              * 被索引文件
              */
             private final File file;
 
-            IndexTask(IndexScheduleDTO holder, File file) {
-                this.currentHolder = holder;
+            IndexTask(File file) {
                 this.file = file;
             }
 
             @Override
             public void run() {
-                synchronized (currentHolder) {
+                synchronized (holder) {
                     // 添加索引
                     addIndex(file);
-                    int finishNum = currentHolder.getFinishNum();
+                    int finishNum = holder.getFinishNum();
 
                     // 完成数+1
                     finishNum++;
-                    currentHolder.setFinishNum(finishNum);
+                    holder.setFinishNum(finishNum);
 
-                    int total = currentHolder.getTotalNum();
-                    int finish = currentHolder.getFinishNum();
+                    int total = holder.getTotalNum();
+                    int finish = holder.getFinishNum();
                     if (finish == total) {
                         destroyExecute();
                     }
