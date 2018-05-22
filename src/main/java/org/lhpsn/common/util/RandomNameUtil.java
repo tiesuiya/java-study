@@ -1,5 +1,9 @@
 package org.lhpsn.common.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -21,7 +25,6 @@ public class RandomNameUtil {
      * @return 随机人名
      */
     public static String getRandomName() {
-        return NAME_ARRAY[new Random().nextInt(NAME_ARRAY.length];
+        return NAME_ARRAY[new Random().nextInt(NAME_ARRAY.length)];
     }
-
 }
