@@ -1,6 +1,9 @@
 package org.lhpsn.common.util;
 
 import org.junit.Test;
+import org.lhpsn.thirdparty.lucene4.service.LuceneIndexServiceTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Arrays;
@@ -14,12 +17,14 @@ import java.util.List;
  */
 public class FileFinderUtilTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(LuceneIndexServiceTest.class);
+
     @Test
     public void find() throws Exception {
         List<File> files = FileFinderUtil.find("/Users/Hong/IdeaProjects/java-study", 3, Arrays.asList("xml", "MD"));
         for (File file : files) {
-            System.out.println(file.getAbsoluteFile());
+            LOGGER.debug("绝对路径：" + file.getAbsoluteFile());
         }
-        System.out.println("文件个数：" + files.size());
+        LOGGER.debug("size：" + files.size());
     }
 }

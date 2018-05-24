@@ -265,6 +265,7 @@ public class LuceneIndexServiceImpl implements LuceneIndexService {
      * @throws IOException IOException
      */
     private Directory openDirectory() throws IOException {
+        LOGGER.error(INDEX_DIR);
         return FSDirectory.open(new File(INDEX_DIR));
     }
 

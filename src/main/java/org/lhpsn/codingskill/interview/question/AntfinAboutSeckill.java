@@ -54,8 +54,6 @@ public class AntfinAboutSeckill {
 
         // 执行秒杀
         List<Goods> completeGoodsList = seckillService.doSeckill(goodsList, userList);
-        Thread.sleep(5000);
-        completeGoodsList = seckillService.doSeckill(goodsList, userList);
 
         System.out.println(String.format("\n秒杀结束，总耗时%d（ms），商品秒杀信息如下:", (System.currentTimeMillis() - beginTime)));
         for (Goods goods : completeGoodsList) {
