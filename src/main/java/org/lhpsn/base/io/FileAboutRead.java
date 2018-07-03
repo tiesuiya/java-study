@@ -3,14 +3,16 @@ package org.lhpsn.base.io;
 import java.io.*;
 
 /**
+ * 关于文件读取
+ *
  * @author lh
  * @since 1.0.0
  */
-public class IoAboutFile {
+public class FileAboutRead {
 
     public static void main(String[] args) throws IOException {
 
-        IoAboutFile ioAboutFile = new IoAboutFile();
+        FileAboutRead ioAboutFile = new FileAboutRead();
 
         String pathName = "README.MD";
         ioAboutFile.readFileByInputStream(pathName);
@@ -19,8 +21,8 @@ public class IoAboutFile {
     /**
      * 通过InputSteam读文件
      *
-     * @param pathName
-     * @throws IOException
+     * @param pathName 文件路径
+     * @throws IOException IOException
      */
     private void readFileByInputStream(String pathName) throws IOException {
         InputStream inputStream = new FileInputStream(new File(pathName));

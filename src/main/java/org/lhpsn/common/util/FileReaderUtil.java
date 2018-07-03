@@ -55,6 +55,7 @@ public class FileReaderUtil {
                 break;
             default:
                 // 待续...
+                content = FileReaderUtil.readFile(file);
                 break;
         }
 

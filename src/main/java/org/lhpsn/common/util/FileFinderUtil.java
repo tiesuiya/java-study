@@ -21,7 +21,7 @@ public class FileFinderUtil {
      * @return 查找结果集合
      */
     public static List<File> find(String path, Integer depth, List<String> typeList) {
-        return new FileFinder().find1(path, depth, typeList);
+        return new FileFinder().findInner(path, depth, typeList);
     }
 
     /**
@@ -52,7 +52,7 @@ public class FileFinderUtil {
          * @param typeList 匹配后缀集合
          * @return 查找结果集合
          */
-        private List<File> find1(String path, Integer depth, List<String> typeList) {
+        private List<File> findInner(String path, Integer depth, List<String> typeList) {
             this.resultList = new ArrayList<>();
             this.depth = depth;
             this.typeList = typeList == null ? new ArrayList<String>() : typeList;
