@@ -1,7 +1,7 @@
 package org.lhpsn.base.designpattern;
 
 /**
- * Decorator Pattern
+ * 装饰器模式 Decorator Pattern
  *
  * @author lh
  * @since 1.0.0
