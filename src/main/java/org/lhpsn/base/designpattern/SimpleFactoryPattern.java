@@ -1,7 +1,7 @@
 package org.lhpsn.base.designpattern;
 
 /**
- * 简单工厂模式 Simple Factory Pattern
+ * 简单工厂模式
  *
  * @author lh
  * @since 1.0.0

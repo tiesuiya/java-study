@@ -1,7 +1,7 @@
 package org.lhpsn.base.designpattern;
 
 /**
- * 单例模式 Singleton Pattern
+ * 单例模式
  *
  * @author lh
  * @since 1.0.0
