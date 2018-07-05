@@ -1,4 +1,4 @@
-package org.lhpsn.common.util;
+package org.lhpsn.common.util.file;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,7 +10,10 @@ import java.util.List;
  * @author lh
  * @since 1.0.0
  */
-public class FileFinderUtil {
+public final class FileFinderUtil {
+
+    private FileFinderUtil() {
+    }
 
     /**
      * 查找文件静态方法

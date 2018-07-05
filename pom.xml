@@ -13,7 +13,8 @@
         <junit.version>4.12</junit.version>
         <jdk.version>1.7</jdk.version>
         <lucene.version>4.10.2</lucene.version>
-        <poi.version>3.16</poi.version>
+        <poi.version>3.8</poi.version>
+        <pdfbox.version>1.8.10</pdfbox.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -69,6 +70,11 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
             <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>${pdfbox.version}</version>
         </dependency>
 
         <!-- log -->
