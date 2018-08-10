@@ -34,6 +34,8 @@ class CalcFactory {
             case "/":
                 calc = new CalcDiv();
                 break;
+            default:
+                break;
         }
         return calc;
     }
