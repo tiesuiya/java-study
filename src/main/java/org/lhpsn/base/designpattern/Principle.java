@@ -8,7 +8,11 @@ package org.lhpsn.base.designpattern;
  */
 public class Principle {
 
+    // PS：原则是要有，但也避免过度设计
+
     // 单一职责原则（Single Responsibility Principle）
-    // 定义：There should never be more than one reason for a class to change，应该有且仅有一个原因引起类的变更。
-    // 职责：业务逻辑，或者对象能够承担的责任，并以某种行为方式来执行。
+    // 定义：有且仅有一个原因引起类的变更。There should never be more than one reason for a class to change。
+
+    // 开放封闭原则（Open Close Principle）
+    // 定义：对扩展开放，对修改封闭（Open for extension,Close for modification）
 }
