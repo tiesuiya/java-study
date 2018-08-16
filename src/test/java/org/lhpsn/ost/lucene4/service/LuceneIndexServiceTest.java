@@ -1,9 +1,9 @@
-package org.lhpsn.thirdparty.lucene4.service;
+package org.lhpsn.ost.lucene4.service;
 
 import org.junit.Test;
-import org.lhpsn.thirdparty.lucene4.dto.IndexDTO;
-import org.lhpsn.thirdparty.lucene4.dto.IndexScheduleDTO;
-import org.lhpsn.thirdparty.lucene4.dto.SearchResultDTO;
+import org.lhpsn.ost.lucene4.dto.IndexDTO;
+import org.lhpsn.ost.lucene4.dto.IndexScheduleDTO;
+import org.lhpsn.ost.lucene4.dto.SearchResultDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

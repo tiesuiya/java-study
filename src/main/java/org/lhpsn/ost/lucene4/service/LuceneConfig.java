@@ -1,4 +1,4 @@
-package org.lhpsn.thirdparty.lucene4.service;
+package org.lhpsn.ost.lucene4.service;
 
 import java.util.Arrays;
 import java.util.List;

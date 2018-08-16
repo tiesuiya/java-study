@@ -1,4 +1,4 @@
-package org.lhpsn.thirdparty;
+package org.lhpsn.ost;
 
 import jxl.Workbook;
 import jxl.write.*;

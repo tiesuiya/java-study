@@ -1,4 +1,4 @@
-package org.lhpsn.thirdparty.lucene4.dto;
+package org.lhpsn.ost.lucene4.dto;
 
 /**
  * 索引进度DTO

@@ -2,6 +2,7 @@ package org.lhpsn.base.designpattern;
 
 /**
  * 设计模式六大原则
+ *
  * @Author: lihong
  * @Date: 2018/8/10
  * @Description
