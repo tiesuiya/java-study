@@ -1,5 +1,7 @@
 package org.lhpsn.base.serializable;
 
+import org.lhpsn.common.util.ObjectUtil;
+
 import java.io.*;
 
 /**
@@ -14,15 +16,13 @@ public class SerializableAboutClone {
 
         System.out.println("使用序列化实现对象克隆：");
 
-        SerializableAboutClone serializableAboutClone = new SerializableAboutClone();
-
         Car car = new Car("Benz", 300);
         Person person1 = new Person("Hao LUO", 33, car);
         System.out.println("person1:");
         System.out.println(person1 + "\n");
 
         // 深度克隆
-        Person person2 = serializableAboutClone.clone(person1);
+        Person person2 = ObjectUtil.clone(person1);
         System.out.println("person2:");
         System.out.println(person2 + "\n");
 
@@ -31,26 +31,6 @@ public class SerializableAboutClone {
         System.out.println(person1 + "\n");
 
         System.out.println("person1关联的汽车不会受到任何影响");
-    }
-
-    /**
-     * 通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆
-     *
-     * @param obj 待克隆对象
-     * @param <T> Serializable泛型限定，需要特别注意的是T所包含的对象也需要实现Serializable接口，这一点在编译时无法检查到！
-     * @return 克隆的对象
-     * @throws Exception 克隆异常
-     */
-    public <T extends Serializable> T clone(T obj) throws Exception {
-        ByteArrayOutputStream bout = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bout);
-        oos.writeObject(obj);
-
-        // 说明：调用ByteArrayInputStream或ByteArrayOutputStream对象的close方法没有任何意义
-        // 这两个基于内存的流只要垃圾回收器清理对象就能够释放资源，这一点不同于对外部资源（如文件流）的释放
-        ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
-        ObjectInputStream ois = new ObjectInputStream(bin);
-        return (T) ois.readObject();
     }
 }
 
