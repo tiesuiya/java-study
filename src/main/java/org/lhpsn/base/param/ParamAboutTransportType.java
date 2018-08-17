@@ -115,7 +115,7 @@ class Wrapper {
 enum TestEnum {
 
     /**
-     * enum A
+     * enum XStreamAboutDefualt
      */
     A,
 
