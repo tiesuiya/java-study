@@ -11,7 +11,7 @@
 
     <properties>
         <junit.version>4.12</junit.version>
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <lucene.version>4.10.2</lucene.version>
         <poi.version>3.8</poi.version>
         <pdfbox.version>1.8.10</pdfbox.version>
@@ -110,16 +110,18 @@
 
     <!-- 限定jdk版本 -->
     <build>
-        <finalName>seckill</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0.2</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF8</encoding>
                 </configuration>
             </plugin>
         </plugins>
