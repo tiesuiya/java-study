@@ -1,11 +1,3 @@
-/**
- * java-study
- * <p>
- * Copyright 2014 Acooly.cn, Inc. All rights reserved.
- *
- * @author RQ021
- * @date 2019-04-09 17:56
- */
 package org.lhpsn.book.thinkinginjava4.chapter05.e11;
 
 import lombok.extern.slf4j.Slf4j;
