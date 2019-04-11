@@ -1,3 +1,3 @@
-<master>
-	<h1>标题</h1>
-</master>	
+<div>
+	<h1>爱因斯坦牛逼</h1>
+</div>

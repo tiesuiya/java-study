@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+<master>
+	<h1>标题</h1>
+</master>	
+=======
+<hotfix>
+	<h2>我说鸭儿</h2>
+</hotfix>	
+>>>>>>> hotfix
