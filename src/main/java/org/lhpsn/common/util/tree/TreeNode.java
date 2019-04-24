@@ -1,4 +1,4 @@
-package org.lhpsn.common.util.tree.generator;
+package org.lhpsn.common.util.tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,4 +36,5 @@ public class TreeNode<T extends Treeable> {
     public String toString() {
         return value.toString();
     }
+
 }

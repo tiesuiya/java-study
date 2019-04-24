@@ -6,15 +6,15 @@
  * @author RQ021
  * @date 2019-04-23 11:55
  */
-package org.lhpsn.common.util.tree.generator;
+package org.lhpsn.common.util.tree;
 
 /**
  * @author tsy
  * @date 2019-04-23 11:55
  */
-public interface Treeable extends Comparable {
+public interface Treeable {
 
-    Object getTreeId();
+    String getTreeId();
 
-    Object getTreePid();
+    String getTreePid();
 }
