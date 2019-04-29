@@ -1,4 +1,4 @@
-package org.lhpsn.book.thinkinginjava4.chapter06.e09.access.local;
+package org.lhpsn.book.thinkinginjava4.chapter06.e09.local;
 
 /**
  * @author tsy

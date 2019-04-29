@@ -1,4 +1,4 @@
-package org.lhpsn.book.thinkinginjava4.chapter06.e09.access;
+package org.lhpsn.book.thinkinginjava4.chapter06.e09;
 
 //import org.lhpsn.book.thinkinginjava4.chapter06.e09.access.local.PackagedClass;
 
