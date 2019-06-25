@@ -31,7 +31,7 @@ public class Block {
      * @return
      */
     public String calculateHash() {
-        return SecurityUtil.applySha256(previousHash + timeStamp + nonce + data);
+        return StringUtil.applySha256(previousHash + timeStamp + nonce + data);
     }
 
     /**

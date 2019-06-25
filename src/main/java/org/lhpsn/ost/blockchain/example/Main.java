@@ -33,7 +33,7 @@ public class Main {
 
         // blockChain.get(0).setData("change it!");
 
-        System.out.println("BlockChain is valid? " + SecurityUtil.isChainValid(blockChain, difficulty));
+        System.out.println("BlockChain is valid? " + StringUtil.isChainValid(blockChain, difficulty));
 
         System.out.println(JSON.toJSONString(blockChain));
     }
