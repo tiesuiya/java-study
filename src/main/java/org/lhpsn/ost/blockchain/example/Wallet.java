@@ -19,7 +19,7 @@ public class Wallet {
     public Wallet() {
         generateKeyPair();
     }
-
+// git test user.email
     private void generateKeyPair() {
         try {
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "BC");
