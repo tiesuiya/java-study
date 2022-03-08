@@ -13,7 +13,7 @@
         <junit.version>4.12</junit.version>
         <jdk.version>1.8</jdk.version>
         <lucene.version>4.10.2</lucene.version>
-        <poi.version>3.8</poi.version>
+        <poi.version>5.2.1</poi.version>
         <pdfbox.version>1.8.10</pdfbox.version>
         <xstream.version>1.4.10</xstream.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
